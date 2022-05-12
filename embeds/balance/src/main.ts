@@ -56,7 +56,7 @@ const renderApp = async () => {
     </main>
     `;
   } catch (e) {
-    console.error(e);
+    console.error("Error :(", e);
   }
 };
 

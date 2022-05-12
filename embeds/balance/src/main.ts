@@ -1,6 +1,6 @@
 import "./style.css";
 
-const V2_PATH_REGEX = /#\/v2\/p\/([0-9+])/;
+const V2_PATH_REGEX = /\/v2\/p\/([0-9+])/;
 const SUBGRAPH_URL =
   "https://api.thegraph.com/subgraphs/id/QmRoxhw8zQzsVpVj8Mf4hs5bYwTxTxyvZEpHPLZ6shVsXy";
 
@@ -18,7 +18,7 @@ const CONTRACTS_VERSION = "2";
 const formatWad = (wad: number) => (wad / 1e18).toFixed(2);
 const getOptions = () => {
   console.log(window);
-  const projectId = window.location.hash.match(V2_PATH_REGEX)?.[1];
+  const projectId = window.location.pathname.match(V2_PATH_REGEX)?.[1];
   if (!projectId)
     throw new Error(`No project id [location=${window.location}]`);
 

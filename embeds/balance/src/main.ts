@@ -51,7 +51,7 @@ const renderApp = async () => {
       <div>
         <span style="font-family: sans-serif;">Ξ</span>${paid} raised
       </div>
-      <a href="https://juicebox.money/${window.location.hash}" target="_blank" noopener noreferrer>
+      <a href="https://juicebox.money/#/${window.location.pathname}" target="_blank" noopener noreferrer>
         <img src="${JUICEBOX_LOGO_SRC}" class="logo" />
       </a>
     </main>

@@ -17,7 +17,6 @@ const CONTRACTS_VERSION = "2";
 
 const formatWad = (wad: number) => (wad / 1e18).toFixed(2);
 const getOptions = () => {
-  console.log(window);
   const projectId = window.location.pathname.match(V2_PATH_REGEX)?.[1];
   if (!projectId)
     throw new Error(`No project id [location=${window.location}]`);

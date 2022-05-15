@@ -1,6 +1,6 @@
 [[redirects]]
   from = "/embed/volume/*"
-  to = "https://juice-tools-embed-volume.netlify.app/index.html"
+  to = "https://juice-tools-embed-volume.netlify.app/:splat"
   status = 200 
 
 [[redirects]]

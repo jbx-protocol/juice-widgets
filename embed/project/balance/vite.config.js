@@ -1,3 +1,3 @@
 export default {
-  base: "https://juice-tools-embed-volume.netlify.app",
+  base: "https://juice-tools-embed-balance.netlify.app",
 };

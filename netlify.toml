@@ -3,3 +3,9 @@
   to = "https://juice-tools-embed-volume.netlify.app/:splat"
   status = 200
   force = true
+
+[[redirects]]
+  from = "/embed/balance/*"
+  to = "https://juice-tools-embed-balance.netlify.app/:splat"
+  status = 200
+  force = true

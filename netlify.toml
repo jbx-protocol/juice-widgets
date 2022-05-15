@@ -3,3 +3,8 @@
   to = "https://juice-tools-embed-volume.netlify.app/:splat"
   status = 200
   force = true
+
+[[headers]]
+  for = "/*"
+    [headers.values]
+    Access-Control-Allow-Origin = "juice-tools-embed-volume.netlify.app"

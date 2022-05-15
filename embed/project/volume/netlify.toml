@@ -6,4 +6,4 @@
 [[headers]]
   for = "/*"
     [headers.values]
-    Access-Control-Allow-Origin = "*.juicebox.money"
+    Access-Control-Allow-Origin = "https://tools.juicebox.money"

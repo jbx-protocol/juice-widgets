@@ -1,0 +1,16 @@
+@import url('reset.css');
+
+#app {
+  font-family: 'DM Mono', monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fefdfb;
+  color: #111111;
+  text-align: center;
+}
+
+.logo {
+  border-radius: 50%;
+  max-width: 40px;
+  margin-top: 0.5rem;
+}

@@ -3,3 +3,7 @@
   to = "juice-tools-embed-volume.netlify.app/:splat"
   status = 200 
   force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"

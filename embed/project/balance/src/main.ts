@@ -6,8 +6,7 @@ import {
   getJBSingleTokenPaymentTerminalStore,
 } from "juice-sdk";
 
-const V2_PATH_REGEX = /\/v2\/p\/([0-9+])/;
-
+const V2_PATH_REGEX = /\/v2\/p\/([0-9{1,10000}+])/;
 const JUICEBOX_LOGO_SRC =
   "https://worker.snapshot.org/mirror?img=https%3A%2F%2Fcloudflare-ipfs.com%2Fipfs%2FQmNTrd3xuoS2EbfAiMTKCMBc3PeH27xZmiJsSS82aipW3S";
 

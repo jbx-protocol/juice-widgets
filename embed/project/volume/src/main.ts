@@ -1,6 +1,6 @@
 import "./style.css";
 
-const V2_PATH_REGEX = /\/v2\/p\/([0-9+])/;
+const V2_PATH_REGEX = /\/v2\/p\/([0-9{1,10000}+])/;
 const SUBGRAPH_URL =
   "https://api.thegraph.com/subgraphs/id/QmRoxhw8zQzsVpVj8Mf4hs5bYwTxTxyvZEpHPLZ6shVsXy";
 

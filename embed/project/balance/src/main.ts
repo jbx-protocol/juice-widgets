@@ -34,7 +34,7 @@ async function getBalance(projectId: string): Promise<string> {
     provider
   ).balanceOf(primaryTerminal, projectId);
 
-  return balance;
+  return balance.toString();
 }
 
 const renderApp = async () => {

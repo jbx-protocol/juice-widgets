@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "ethers": "^5.6.6",
-    "juice-sdk": "^0.0.4-alpha",
+    "juice-sdk": "^0.0.10-alpha",
     "typescript": "^4.5.4",
     "vite": "^2.9.9"
   }

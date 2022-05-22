@@ -8,11 +8,11 @@
 
 #### Buttons
 
-| name                       | asset                                                 | URL                                                                |
-| -------------------------- | ----------------------------------------------------- | ------------------------------------------------------------------ |
-| Support Us Button (black)  | <img src="./assets/support-us-on-jb-black@1x.png" />  | https://tools.juicebox.money/assets/support-us-on-jb-black@1x.png  |
-| Support Us Button (yellow) | <img src="./assets/support-us-on-jb-yellow@1x.png" /> | https://tools.juicebox.money/assets/support-us-on-jb-yellow@1x.png |
-| Support Us Button (white)  | <img src="./assets/support-us-on-jb-white@1x.png" />  | https://tools.juicebox.money/assets/support-us-on-jb-white@1x.png  |
+| name                     | asset                                             | URL                                                            |
+| ------------------------ | ------------------------------------------------- | -------------------------------------------------------------- |
+| Juicebox Button (black)  | <img src="./assets/juicebox-button-black.png" />  | https://tools.juicebox.money/assets/juicebox-button-black.png  |
+| Juicebox Button (yellow) | <img src="./assets/juicebox-button-yellow.png" /> | https://tools.juicebox.money/assets/juicebox-button-yellow.png |
+| Juicebox Button (white)  | <img src="./assets/juicebox-button-white.png" />  | https://tools.juicebox.money/assets/juicebox-button-white.png  |
 
 ### Embed
 

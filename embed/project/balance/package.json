@@ -8,8 +8,9 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@rollup/plugin-json": "^4.1.0",
     "ethers": "^5.6.6",
-    "juice-sdk": "^0.0.11-alpha",
+    "juice-sdk": "^0.0.16-alpha",
     "typescript": "^4.5.4",
     "vite": "^2.9.9"
   }

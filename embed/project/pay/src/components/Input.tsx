@@ -2,7 +2,7 @@ import { ExclamationCircleIcon } from "@heroicons/react/solid";
 import { ETH_SYMBOL } from "../constants/strings";
 
 export function Input(props: React.HTMLProps<HTMLInputElement>) {
-  const inputClass = `focus:ring-cyan-700 py-3 focus:border-cyan-500 block w-full pl-7 text-md border border-slate-500 rounded-sm bg-transparent text-black     ${
+  const inputClass = `focus:ring-cyan-600 py-3 focus:border-cyan-500 block w-full pl-7 text-md border border-slate-500 rounded-sm bg-transparent text-black     ${
     props["aria-invalid"] ? "pr-16" : "pr-12"
   }`;
 

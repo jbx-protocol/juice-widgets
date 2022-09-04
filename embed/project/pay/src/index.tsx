@@ -4,23 +4,36 @@ import "./index.css";
 import App from "./App";
 import "@rainbow-me/rainbowkit/styles.css";
 import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
-import { WagmiConfig } from "wagmi";
+import { useProvider, WagmiConfig } from "wagmi";
 import { createDefaultClient } from "./lib/wagmi/createClient";
 import { AppContext, AppOptions } from "./contexts/AppContext";
+import { JuiceProvider as DefaultJuice } from "juice-hooks";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const JuiceProvider = ({ children }: { children: JSX.Element }) => {
+  const provider = useProvider();
+
+  return <DefaultJuice provider={provider}>{children}</DefaultJuice>;
+};
 
 const renderApp = (options: AppOptions) => {
   const root = ReactDOM.createRoot(
     document.getElementById("root") as HTMLElement
   );
 
-  const { wagmiClient, chains } = createDefaultClient();
+  const queryClient = new QueryClient();
 
+  const { wagmiClient, chains } = createDefaultClient();
   root.render(
     <React.StrictMode>
       <WagmiConfig client={wagmiClient}>
         <RainbowKitProvider chains={chains}>
           <AppContext.Provider value={{ options, root }}>
-            <App />
+            <JuiceProvider>
+              <QueryClientProvider client={queryClient}>
+                <App />
+              </QueryClientProvider>
+            </JuiceProvider>
           </AppContext.Provider>
         </RainbowKitProvider>
       </WagmiConfig>

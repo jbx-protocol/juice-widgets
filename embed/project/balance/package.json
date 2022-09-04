@@ -10,7 +10,7 @@
   "devDependencies": {
     "@rollup/plugin-json": "^4.1.0",
     "ethers": "^5.6.6",
-    "juice-sdk": "^0.0.16-alpha",
+    "juice-sdk": "^2.0.1-alpha",
     "typescript": "^4.5.4",
     "vite": "^2.9.9"
   }

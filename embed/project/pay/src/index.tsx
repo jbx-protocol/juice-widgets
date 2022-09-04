@@ -26,16 +26,31 @@ const wagmiClient = createClient({
   provider,
 });
 
-const root = ReactDOM.createRoot(
-  document.getElementById("juicebox-pay") as HTMLElement
-);
+const renderApp = (options: any) => {
+  const root = ReactDOM.createRoot(
+    document.getElementById("root") as HTMLElement
+  );
 
-root.render(
-  <React.StrictMode>
-    <WagmiConfig client={wagmiClient}>
-      <RainbowKitProvider chains={chains}>
-        <App />
-      </RainbowKitProvider>
-    </WagmiConfig>
-  </React.StrictMode>
+  root.render(
+    <React.StrictMode>
+      <WagmiConfig client={wagmiClient}>
+        <RainbowKitProvider chains={chains}>
+          <App options={options} root={root} />
+        </RainbowKitProvider>
+      </WagmiConfig>
+    </React.StrictMode>
+  );
+};
+
+window.addEventListener(
+  "message",
+  (e) => {
+    // TODO check host
+    console.log("react::", e.data);
+    if (e.data.method === "render") {
+      const { options } = e.data;
+      renderApp(options);
+    }
+  },
+  false
 );

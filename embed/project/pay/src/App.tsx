@@ -1,29 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { Root } from "react-dom/client";
 import { Card } from "./components/Card";
 
-function App() {
-  const [options, setOptions] = useState();
-
+function App({ options, root }: { options: any; root: Root }) {
   useEffect(() => {
-    window.addEventListener(
-      "message",
-      (e) => {
-        // TODO check host
-        console.log("react::", e.data);
-        if (e.data.method === "render") {
-          const { options } = e.data;
-          setOptions(options);
-
-          document.getElementById("juicebox-pay")?.classList.add("active");
-        }
-      },
-      false
-    );
+    document.getElementById("root")?.classList.add("active");
   }, []);
 
   return (
     <div className="h-screen w-screen bg-opacity-60 bg-black flex items-center justify-center">
-      <Card options={options} />
+      <Card options={options} root={root} />
     </div>
   );
 }

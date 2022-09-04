@@ -1,6 +1,6 @@
 # juice-tools
 
-🧃 An assortment of tools built for Juicebox projects and frens.
+🧃 Juicy website widgets for Juicebox projects.
 
 ## Tools
 

@@ -1,4 +1,4 @@
-# juice-tools
+# juice-widgets
 
 🧃 Juicy website widgets for Juicebox projects.
 

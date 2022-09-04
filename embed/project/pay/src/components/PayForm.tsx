@@ -52,10 +52,17 @@ export function PayForm() {
           Receive 1,000,000 tokens
         </span> */}
       </div>
-
-      <TransactionButton>Pay now</TransactionButton>
-      <small className="font-normal text-center text-gray-500 block mt-2 text-xs">
-        Powered by <a className="hover:text-cyan-700 underline" href="https://juicebox.money">Juicebox</a>
+      <div className="flex justify-center">
+        <TransactionButton>Pay now</TransactionButton>
+      </div>
+      <small className="font-normal text-center text-gray-500 block mt-3 text-xs">
+        Powered by{" "}
+        <a
+          className="hover:text-cyan-700 underline"
+          href="https://juicebox.money"
+        >
+          Juicebox
+        </a>
       </small>
     </form>
   );

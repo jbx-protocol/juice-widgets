@@ -30,19 +30,6 @@ const root = ReactDOM.createRoot(
   document.getElementById("juicebox-pay") as HTMLElement
 );
 
-window.addEventListener(
-  "message",
-  (e) => {
-    console.log("got event", e);
-
-    if (e.data === "jb-pay-widget_open") {
-      console.log("got event, adding class");
-      document.getElementById("juicebox-pay")?.classList.add("active");
-    }
-  },
-  false
-);
-
 root.render(
   <React.StrictMode>
     <WagmiConfig client={wagmiClient}>

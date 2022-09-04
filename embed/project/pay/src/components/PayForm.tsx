@@ -1,14 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { parseEther } from "@ethersproject/units";
 import usePayProjectTx from "../hooks/usePayProjectTx";
 import { AmountButton } from "./AmountButton";
 import { Input } from "./Input";
-import { PEEL_PROJECT_ID } from "../constants/juicebox";
 import { TransactionButton } from "./TransactionButton";
+import { AppContext } from "../contexts/AppContext";
 
 const defaultAmounts = [0.01, 0.69, 1];
 
 export function PayForm() {
+  const { options } = useContext(AppContext);
   const [amount, setAmount] = useState<string>("0");
   const [hasClicked, setHasClicked] = useState<boolean>(false);
 
@@ -16,11 +17,14 @@ export function PayForm() {
 
   const onSubmit: React.FormEventHandler = async (e) => {
     e.preventDefault();
+    if (!options?.projectId) {
+      return;
+    }
 
     if (!hasClicked) setHasClicked(true);
 
     await payProjectTx({
-      projectId: PEEL_PROJECT_ID,
+      projectId: options.projectId,
       valueWad: parseEther(amount.toString()),
     });
   };

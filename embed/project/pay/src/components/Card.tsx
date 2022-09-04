@@ -1,8 +1,11 @@
+import { useContext } from "react";
+import { AppContext } from "../contexts/AppContext";
 import { Logo } from "./Logo";
 import { PayForm } from "./PayForm";
-import { Root } from "react-dom/client";
 
-export function Card({ options, root }: { options: any; root: Root }) {
+export function Card() {
+  const { options, root } = useContext(AppContext);
+
   return (
     <div className="sm:mx-auto sm:w-full sm:max-w-md card-transition">
       <button
@@ -15,7 +18,7 @@ export function Card({ options, root }: { options: any; root: Root }) {
           // TODO listen for transitionend instead probably
           setTimeout(() => {
             window.parent?.postMessage({ method: "close" }, "*");
-            root.unmount();
+            root?.unmount();
           }, 100);
         }}
       >

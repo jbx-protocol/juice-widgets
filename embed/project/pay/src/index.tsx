@@ -10,12 +10,18 @@ import { AppContext, AppOptions } from "./contexts/AppContext";
 import { JuiceProvider as DefaultJuice } from "juice-hooks";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-const JuiceProvider = ({ children }: { children: JSX.Element }) => {
+const JuiceProvider = ({
+  networkName,
+  children,
+}: {
+  networkName?: "rinkeby" | "mainnet";
+  children: JSX.Element;
+}) => {
   const provider = useProvider();
   const { data: singer } = useSigner();
 
   return (
-    <DefaultJuice provider={singer ?? provider} networkName="rinkeby">
+    <DefaultJuice provider={singer ?? provider} networkName={networkName}>
       {children}
     </DefaultJuice>
   );
@@ -34,7 +40,7 @@ const renderApp = (options: AppOptions) => {
       <WagmiConfig client={wagmiClient}>
         <RainbowKitProvider chains={chains}>
           <AppContext.Provider value={{ options, root }}>
-            <JuiceProvider>
+            <JuiceProvider networkName={options.networkName ?? "mainnet"}>
               <QueryClientProvider client={queryClient}>
                 <App />
               </QueryClientProvider>

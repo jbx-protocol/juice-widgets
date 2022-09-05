@@ -5,6 +5,7 @@ export interface AppOptions {
   title: string;
   description: string;
   projectId: number;
+  networkName: "mainnet" | "rinkeby";
 }
 
 interface AppContextData {

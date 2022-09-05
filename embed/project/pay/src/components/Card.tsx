@@ -14,12 +14,11 @@ export function Card() {
     domain: "0",
   });
 
-  const { data: projectMetadata, isLoading } =
-    useProjectMetadata(projectMetadataCID);
+  const { data: projectMetadata } = useProjectMetadata(projectMetadataCID);
 
   return (
     <div className="sm:mx-auto sm:w-full sm:max-w-md card-transition">
-      <div className="pb-8 bg-zinc-50 shadow-xl rounded-sm relative">
+      <div className="bg-zinc-50 shadow-xl rounded-sm relative">
         <button
           className="absolute top-2 right-2 text-gray-400 hover:text-gray-500"
           onClick={() => {
@@ -36,7 +35,7 @@ export function Card() {
         >
           <XCircleIcon className="w-5 h-5" />
         </button>
-        <div className="text-center mb-5 bg-gray-100 w-full sm:px-10 pb-5 px-3">
+        <div className="text-center mb-5 bg-zinc-100 w-full sm:px-10 pb-5 px-3">
           {projectMetadata?.logoUri && <Logo src={projectMetadata.logoUri} />}
           <h1 className="mt-4">
             {options?.title ?? (
@@ -62,6 +61,16 @@ export function Card() {
         <div className="sm:px-10 px-3">
           <PayForm />
         </div>
+
+        <small className="font-normal text-center text-gray-500 block mt-5 text-xs py-2">
+          Powered by{" "}
+          <a
+            className="hover:text-cyan-700 underline"
+            href="https://juicebox.money"
+          >
+            Juicebox
+          </a>
+        </small>
       </div>
     </div>
   );

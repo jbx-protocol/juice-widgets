@@ -1,31 +1,34 @@
 import { useContext, useState } from "react";
 import { parseEther } from "@ethersproject/units";
-import usePayProjectTx from "../hooks/usePayProjectTx";
 import { AmountButton } from "./AmountButton";
 import { Input } from "./Input";
 import { TransactionButton } from "./TransactionButton";
 import { AppContext } from "../contexts/AppContext";
+import { usePreparePayETHPaymentTerminal } from "juice-hooks";
+import { useAccount } from "wagmi";
 
 const defaultAmounts = [0.01, 0.69, 1];
 
 export function PayForm() {
   const { options } = useContext(AppContext);
+  const { address } = useAccount();
   const [amount, setAmount] = useState<string>("0");
   const [hasClicked, setHasClicked] = useState<boolean>(false);
-
-  const payProjectTx = usePayProjectTx();
-
+  console.log("opay");
+  const payETHPaymentTerminalTx = usePreparePayETHPaymentTerminal();
+  console.log(payETHPaymentTerminalTx);
   const onSubmit: React.FormEventHandler = async (e) => {
     e.preventDefault();
-    if (!options?.projectId) {
+    if (!options?.projectId || !payETHPaymentTerminalTx) {
       return;
     }
 
     if (!hasClicked) setHasClicked(true);
 
-    await payProjectTx({
+    await payETHPaymentTerminalTx({
       projectId: options.projectId,
-      valueWad: parseEther(amount.toString()),
+      value: parseEther(amount.toString()),
+      beneficiary: address,
     });
   };
 
@@ -59,15 +62,6 @@ export function PayForm() {
       <div className="flex justify-center">
         <TransactionButton>Pay now</TransactionButton>
       </div>
-      <small className="font-normal text-center text-gray-500 block mt-3 text-xs">
-        Powered by{" "}
-        <a
-          className="hover:text-cyan-700 underline"
-          href="https://juicebox.money"
-        >
-          Juicebox
-        </a>
-      </small>
     </form>
   );
 }

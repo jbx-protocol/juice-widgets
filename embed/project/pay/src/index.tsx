@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import "@rainbow-me/rainbowkit/styles.css";
 import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
-import { useProvider, WagmiConfig } from "wagmi";
+import { useProvider, useSigner, WagmiConfig } from "wagmi";
 import { createDefaultClient } from "./lib/wagmi/createClient";
 import { AppContext, AppOptions } from "./contexts/AppContext";
 import { JuiceProvider as DefaultJuice } from "juice-hooks";
@@ -12,8 +12,13 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const JuiceProvider = ({ children }: { children: JSX.Element }) => {
   const provider = useProvider();
+  const { data: singer } = useSigner();
 
-  return <DefaultJuice provider={provider}>{children}</DefaultJuice>;
+  return (
+    <DefaultJuice provider={singer ?? provider} networkName="rinkeby">
+      {children}
+    </DefaultJuice>
+  );
 };
 
 const renderApp = (options: AppOptions) => {

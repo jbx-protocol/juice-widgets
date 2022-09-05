@@ -7,7 +7,7 @@ const infuraKey = "c2838024e339438fbe8a31d6754efe8a";
 
 export const createDefaultClient = () => {
   const { chains, provider } = configureChains(
-    [chain.mainnet, chain.polygon, chain.optimism, chain.arbitrum],
+    [chain.mainnet, chain.rinkeby],
     [infuraProvider({ apiKey: infuraKey }), publicProvider()]
   );
 

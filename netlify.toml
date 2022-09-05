@@ -18,7 +18,7 @@
 
 [[redirects]]
   from = "/pay.js"
-  to = "/public/scripts/pay.js"
+  to = "/public/dist/pay.js"
 
 [functions]
   directory = "netlify/functions"

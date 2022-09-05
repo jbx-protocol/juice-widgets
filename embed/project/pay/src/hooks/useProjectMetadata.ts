@@ -4,7 +4,7 @@ import axios from "axios";
 const DEFAULT_PINATA_GATEWAY = "gateway.pinata.cloud";
 const IPFS_GATEWAY_HOSTNAME = "jbx.mypinata.cloud";
 
-export const ipfsCidUrl = (
+const ipfsCidUrl = (
   hash: string,
   options: {
     useFallback?: boolean;
@@ -17,7 +17,7 @@ export const ipfsCidUrl = (
   return `https://${IPFS_GATEWAY_HOSTNAME}/ipfs/${hash}`;
 };
 
-export const ipfsGetWithFallback = async (hash: string) => {
+const ipfsGetWithFallback = async (hash: string) => {
   try {
     const response = await axios.get(ipfsCidUrl(hash));
     return response;

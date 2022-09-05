@@ -6,7 +6,6 @@ export function TransactionButton(
   props: Omit<React.HTMLProps<HTMLButtonElement>, "type">
 ) {
   const { address } = useAccount();
-  // console.log("here", connectedWalletAddress);
   if (!address) {
     return <ConnectButton />;
   }

@@ -14,9 +14,9 @@ export function PayForm() {
   const { address } = useAccount();
   const [amount, setAmount] = useState<string>("0");
   const [hasClicked, setHasClicked] = useState<boolean>(false);
-  console.log("opay");
+
   const payETHPaymentTerminalTx = usePreparePayETHPaymentTerminal();
-  console.log(payETHPaymentTerminalTx);
+
   const onSubmit: React.FormEventHandler = async (e) => {
     e.preventDefault();
     if (!options?.projectId || !payETHPaymentTerminalTx) {
@@ -29,6 +29,7 @@ export function PayForm() {
       projectId: options.projectId,
       value: parseEther(amount.toString()),
       beneficiary: address,
+      memo: `Paid on ${document.referrer}`,
     });
   };
 

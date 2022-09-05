@@ -10,9 +10,9 @@
 
 | name                     | asset                                             | URL                                                            |
 | ------------------------ | ------------------------------------------------- | -------------------------------------------------------------- |
-| Juicebox Button (black)  | <img src="./assets/juicebox-button-black.png" />  | https://tools.juicebox.money/assets/juicebox-button-black.png  |
-| Juicebox Button (yellow) | <img src="./assets/juicebox-button-yellow.png" /> | https://tools.juicebox.money/assets/juicebox-button-yellow.png |
-| Juicebox Button (white)  | <img src="./assets/juicebox-button-white.png" />  | https://tools.juicebox.money/assets/juicebox-button-white.png  |
+| Juicebox Button (black)  | <img src="./public/juicebox-button-black.png" />  | https://tools.juicebox.money/public/juicebox-button-black.png  |
+| Juicebox Button (yellow) | <img src="./public/juicebox-button-yellow.png" /> | https://tools.juicebox.money/public/juicebox-button-yellow.png |
+| Juicebox Button (white)  | <img src="./public/juicebox-button-white.png" />  | https://tools.juicebox.money/public/juicebox-button-white.png  |
 
 ### Embed
 

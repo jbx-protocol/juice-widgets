@@ -16,5 +16,9 @@
   status = 200
   force = true
 
+[[redirects]]
+  from = "/pay.js"
+  to = "/public/scripts/pay.js"
+
 [functions]
   directory = "netlify/functions"

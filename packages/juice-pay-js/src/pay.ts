@@ -8,6 +8,7 @@ const DEFAULT_OPTIONS = {
   triggerButtonText: "Pay with Juicebox",
   triggerButtonClass: "",
   triggerButtonStyle: "",
+  triggerButtonSelector: "#juice-pay-button",
 };
 
 const scriptEl = document.querySelector(`script[src="${SCRIPT_SRC_URL}"]`) as
@@ -59,7 +60,7 @@ function mount() {
 
   addFrameEventListeners(iframe);
 
-  const mountEl = document.getElementById("juice-pay-button");
+  const mountEl = document.querySelector(appOptions.triggerButtonSelector);
   mountEl?.replaceWith(iframe, button);
 }
 

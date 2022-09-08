@@ -61,7 +61,9 @@ export function PayForm() {
         </span> */}
       </div>
       <div className="flex justify-center">
-        <TransactionButton>Pay now</TransactionButton>
+        <TransactionButton>
+          {options?.payButtonText ?? "Pay now"}
+        </TransactionButton>
       </div>
     </form>
   );

@@ -1,11 +1,22 @@
 import ReactDOM from "react-dom/client";
 import { createContext } from "react";
+import { NetworkName } from "../types";
 
 export interface AppOptions {
+  projectId: number;
+
+  networkName: NetworkName;
+
   title: string;
   description: string;
-  projectId: number;
-  networkName: "mainnet" | "rinkeby";
+  avatarUrl: string;
+
+  payButtonText: string;
+
+  triggerButtonText: string;
+  triggerButtonClass: string;
+  triggerButtonStyle: string;
+  triggerButtonSelector: string;
 }
 
 interface AppContextData {

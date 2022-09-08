@@ -3,5 +3,5 @@ export type ContractReadHookResponse<T> = {
   loading: boolean;
   error: Error | undefined;
 };
-
+export type NetworkName = "rinkeby" | "mainnet";
 export type ProjectId = number;

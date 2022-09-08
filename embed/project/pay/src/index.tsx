@@ -9,12 +9,13 @@ import { createDefaultClient } from "./lib/wagmi/createClient";
 import { AppContext, AppOptions } from "./contexts/AppContext";
 import { JuiceProvider as DefaultJuice } from "juice-hooks";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { NetworkName } from "./types";
 
 const JuiceProvider = ({
   networkName,
   children,
 }: {
-  networkName?: "rinkeby" | "mainnet";
+  networkName?: NetworkName;
   children: JSX.Element;
 }) => {
   const provider = useProvider();

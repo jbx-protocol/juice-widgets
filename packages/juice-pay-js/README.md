@@ -9,14 +9,14 @@
 1. Add a `<script>` tag to your website.
 
    ```html
-   <script src="https://tools.juicebox.money/pay.min.js"></script>
+   <script src="https://tools.juicebox.money/pay.js"></script>
    ```
 
 2. Set the `data-project-id` attribute to your Juicebox project's ID.
 
    ```diff
    <script
-     src="https://tools.juicebox.money/pay.min.js"
+     src="https://tools.juicebox.money/pay.js"
    + data-project-id="123"
    ></script>
    ```
@@ -39,7 +39,7 @@ Set the popup's title.
 
 ```html
 <script
-  src="https://tools.juicebox.money/pay.min.js"
+  src="https://tools.juicebox.money/pay.js"
   data-title="Fund my project"
 ></script>
 ```
@@ -50,7 +50,7 @@ Set the popup's description text. Defaults to no text.
 
 ```html
 <script
-  src="https://tools.juicebox.money/pay.min.js"
+  src="https://tools.juicebox.money/pay.js"
   data-description="Fund my project. Your donation will be used to keep the juice flowing."
 ></script>
 ```
@@ -61,7 +61,7 @@ Set the popup's avatar. Defaults to the Juicebox project's logo.
 
 ```html
 <script
-  src="https://tools.juicebox.money/pay.min.js"
+  src="https://tools.juicebox.money/pay.js"
   data-description="Fund my project. Your donation will be used to keep the juice flowing."
 ></script>
 ```
@@ -72,7 +72,7 @@ Set the trigger button's inner text. Defaults to **'Pay with Juicebox'**.
 
 ```html
 <script
-  src="https://tools.juicebox.money/pay.min.js"
+  src="https://tools.juicebox.money/pay.js"
   data-trigger-button-text="Donate now"
 ></script>
 ```
@@ -83,7 +83,7 @@ Add CSS classes to the trigger button.
 
 ```html
 <script
-  src="https://tools.juicebox.money/pay.min.js"
+  src="https://tools.juicebox.money/pay.js"
   data-trigger-button-class="juicebox-button"
 ></script>
 ```
@@ -94,7 +94,7 @@ Set the trigger button's HTML `style` attribute.
 
 ```html
 <script
-  src="https://tools.juicebox.money/pay.min.js"
+  src="https://tools.juicebox.money/pay.js"
   data-trigger-button-style="padding: 1rem; background-color: 'blue'; color:"
 ></script>
 ```
@@ -105,7 +105,7 @@ Set the trigger button's mount point selector.
 
 ```html
 <script
-  src="https://tools.juicebox.money/pay.min.js"
+  src="https://tools.juicebox.money/pay.js"
   data-trigger-button-style=".my-custom-juicebox-button-selector"
 ></script>
 ```
@@ -116,7 +116,7 @@ Set the pay button's inner text. Defaults to **'Pay now'**.
 
 ```html
 <script
-  src="https://tools.juicebox.money/pay.min.js"
+  src="https://tools.juicebox.money/pay.js"
   data-pay-button-text="Add juice"
 ></script>
 ```
@@ -132,7 +132,7 @@ Defaults to **`mainnet`**.
 
 ```html
 <script
-  src="https://tools.juicebox.money/pay.min.js"
+  src="https://tools.juicebox.money/pay.js"
   data-network-name="rinkeby"
 ></script>
 ```

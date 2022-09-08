@@ -20,5 +20,9 @@
   from = "/pay.js"
   to = "/public/dist/pay.js"
 
+[[redirects]]
+  from = "/pay.min.js"
+  to = "/public/dist/pay.min.js"
+
 [functions]
   directory = "netlify/functions"

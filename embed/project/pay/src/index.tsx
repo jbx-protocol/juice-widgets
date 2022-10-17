@@ -57,7 +57,6 @@ window.addEventListener(
   "message",
   (e) => {
     // TODO check host
-    console.log("react::", e.data);
     if (e.data.method === "render") {
       const { options } = e.data;
       renderApp(options);

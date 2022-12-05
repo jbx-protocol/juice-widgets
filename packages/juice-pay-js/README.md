@@ -2,6 +2,8 @@
 
 💰 Add a "Pay with Juicebox" button to your website.
 
+## WARNING not updated for Juicebox V3. Only use with Juicebox V2
+
 > Juicebox V1 projects not supported (yet).
 
 ## Usage

@@ -1,36 +1,71 @@
-import { useContext, useState } from "react";
 import { parseEther } from "@ethersproject/units";
+import { useContext, useState } from "react";
+import {
+  useAccount,
+  useContractRead,
+  useContractWrite,
+  useNetwork,
+  usePrepareContractWrite,
+} from "wagmi";
+import { AppContext } from "../contexts/AppContext";
+import { jbDirectoryABI } from "../lib/juicebox/directoryAbi";
+import { jbethPaymentTerminalABI } from "../lib/juicebox/ethTerminalAbi";
 import { AmountButton } from "./AmountButton";
 import { Input } from "./Input";
 import { TransactionButton } from "./TransactionButton";
-import { AppContext } from "../contexts/AppContext";
-import { usePreparePayETHPaymentTerminal } from "juice-hooks";
-import { useAccount } from "wagmi";
 
+const ETHER_ADDRESS = "0x000000000000000000000000000000000000eeee";
 const defaultAmounts = [0.01, 0.69, 1];
 
-export function PayForm() {
+export function PayForm({ projectId }: { projectId: number }) {
+  const network = useNetwork();
   const { options } = useContext(AppContext);
   const { address } = useAccount();
   const [amount, setAmount] = useState<string>("0");
   const [hasClicked, setHasClicked] = useState<boolean>(false);
 
-  const payETHPaymentTerminalTx = usePreparePayETHPaymentTerminal();
+  const amountWei = parseEther(amount.toString());
+
+  const { data: primaryTerminal } = useContractRead({
+    addressOrName:
+      network.chain?.id === 1
+        ? "0x65572FB928b46f9aDB7cfe5A4c41226F636161ea" // mainnet,
+        : "0x8E05bcD2812E1449f0EC3aE24E2C395F533d9A99", // goerli
+    functionName: "primaryTerminalOf",
+    contractInterface: jbDirectoryABI,
+    args: [projectId, ETHER_ADDRESS],
+  });
+
+  const { config } = usePrepareContractWrite({
+    addressOrName: (primaryTerminal as string | undefined) ?? "",
+    functionName: "pay",
+    contractInterface: jbethPaymentTerminalABI,
+    args: [
+      projectId,
+      amountWei,
+      ETHER_ADDRESS,
+      address,
+      0,
+      true,
+      `Paid on ${document.referrer}`,
+      0,
+    ],
+    overrides: {
+      value: amountWei,
+    },
+  });
+
+  const { write } = useContractWrite(config);
 
   const onSubmit: React.FormEventHandler = async (e) => {
     e.preventDefault();
-    if (!options?.projectId || !payETHPaymentTerminalTx) {
+    if (!options?.projectId) {
       return;
     }
 
     if (!hasClicked) setHasClicked(true);
 
-    await payETHPaymentTerminalTx({
-      projectId: options.projectId,
-      value: parseEther(amount.toString()),
-      beneficiary: address,
-      memo: `Paid on ${document.referrer}`,
-    });
+    await write?.();
   };
 
   return (

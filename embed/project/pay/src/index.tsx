@@ -1,14 +1,14 @@
+import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
+import "@rainbow-me/rainbowkit/styles.css";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { JuiceProvider as DefaultJuice } from "juice-hooks";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
-import App from "./App";
-import "@rainbow-me/rainbowkit/styles.css";
-import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { useProvider, useSigner, WagmiConfig } from "wagmi";
-import { createDefaultClient } from "./lib/wagmi/createClient";
+import App from "./App";
 import { AppContext, AppOptions } from "./contexts/AppContext";
-import { JuiceProvider as DefaultJuice } from "juice-hooks";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import "./index.css";
+import { createDefaultClient } from "./lib/wagmi/createClient";
 import { NetworkName } from "./types";
 
 const JuiceProvider = ({
@@ -19,10 +19,10 @@ const JuiceProvider = ({
   children: JSX.Element;
 }) => {
   const provider = useProvider();
-  const { data: singer } = useSigner();
+  const { data: signer } = useSigner();
 
   return (
-    <DefaultJuice provider={singer ?? provider} networkName={networkName}>
+    <DefaultJuice provider={signer ?? provider} networkName={networkName}>
       {children}
     </DefaultJuice>
   );
@@ -32,6 +32,10 @@ const renderApp = (options: AppOptions) => {
   const root = ReactDOM.createRoot(
     document.getElementById("root") as HTMLElement
   );
+
+  if (options.projectVersion !== 2) {
+    throw new Error("unsupported project version.");
+  }
 
   const queryClient = new QueryClient();
 

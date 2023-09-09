@@ -2,7 +2,7 @@ import { ExclamationCircleIcon } from "@heroicons/react/solid";
 import { ETH_SYMBOL } from "../constants/strings";
 
 export function Input(props: React.HTMLProps<HTMLInputElement>) {
-  const inputClass = `focus:ring-cyan-600 py-3 focus:border-cyan-500 block w-full pl-7 text-md border border-slate-500 rounded-sm bg-transparent text-black     ${
+  const inputClass = `focus:ring-cyan-600 py-3 focus:border-cyan-500 block w-full pl-7 text-md border border-slate-500 rounded-md bg-transparent text-black     ${
     props["aria-invalid"] ? "pr-16" : "pr-12"
   }`;
 
@@ -12,7 +12,7 @@ export function Input(props: React.HTMLProps<HTMLInputElement>) {
         Amount
       </label>
 
-      <div className="relative rounded-sm shadow-sm">
+      <div className="relative rounded-md shadow-sm">
         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
           <span className="text-gray-500 sm:text-sm">
             {ETH_SYMBOL}
@@ -40,7 +40,7 @@ export function Input(props: React.HTMLProps<HTMLInputElement>) {
 
         <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
           <span
-            className="text-gray-500 sm:text-sm font-thin"
+            className="text-gray-500 sm:text-sm"
             id="amount-currency"
           >
             ETH

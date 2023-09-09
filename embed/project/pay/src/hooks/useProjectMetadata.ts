@@ -1,31 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 
-const DEFAULT_PINATA_GATEWAY = "gateway.pinata.cloud";
-const IPFS_GATEWAY_HOSTNAME = "jbx.mypinata.cloud";
+const IPFS_GATEWAY_HOSTNAME = "jbm.infura-ipfs.io";
 
-const ipfsCidUrl = (
-  hash: string,
-  options: {
-    useFallback?: boolean;
-  } = { useFallback: false }
-): string => {
-  const { useFallback } = options;
-  if (useFallback) {
-    return `https://${DEFAULT_PINATA_GATEWAY}/ipfs/${hash}`;
-  }
+const ipfsCidUrl = (hash: string): string => {
   return `https://${IPFS_GATEWAY_HOSTNAME}/ipfs/${hash}`;
 };
 
 const ipfsGetWithFallback = async (hash: string) => {
-  try {
-    const response = await axios.get(ipfsCidUrl(hash));
-    return response;
-  } catch (error) {
-    console.info(`ipfs::falling back to public gateway for ${hash}`);
-    const response = await axios.get(ipfsCidUrl(hash, { useFallback: true }));
-    return response;
-  }
+  const response = await fetch(ipfsCidUrl(hash)).then((res) => res.json());
+  return response;
 };
 
 export function useProjectMetadata(uri: string | undefined) {

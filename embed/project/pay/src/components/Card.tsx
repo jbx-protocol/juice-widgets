@@ -15,11 +15,11 @@ export function Card() {
   });
   const { data: projectMetadata } = useProjectMetadata(projectMetadataCID);
 
-  const avatarUrl = options?.avatarUrl ?? projectMetadata?.logoUri;
+  const avatarUrl = `https://juicebox.money/api/juicebox/pv/2/project/${options?.projectId}/logo`;
 
   return (
-    <div className="sm:mx-auto sm:w-full sm:max-w-md card-transition">
-      <div className="bg-zinc-50 shadow-xl rounded-sm relative">
+    <div className="sm:mx-auto sm:w-full sm:max-w-md card-transition rounded-md">
+      <div className="bg-zinc-50 shadow-xl rounded-md relative">
         <button
           className="absolute top-2 right-2 text-gray-400 hover:text-gray-500"
           onClick={() => {
@@ -36,7 +36,7 @@ export function Card() {
         >
           <XCircleIcon className="w-5 h-5" />
         </button>
-        <div className="text-center mb-5 bg-zinc-100 w-full sm:px-10 pb-5 px-3">
+        <div className="text-center mb-5 bg-zinc-100 w-full sm:px-10 pb-5 px-3 rounded-t-md">
           {avatarUrl && <Logo src={avatarUrl} />}
           <h1 className="mt-4">
             {options?.title ?? (
@@ -60,7 +60,9 @@ export function Card() {
         </div>
 
         <div className="sm:px-10 px-3">
-          <PayForm />
+          {options?.projectId ? (
+            <PayForm projectId={options.projectId} />
+          ) : null}
         </div>
 
         <small className="font-normal text-center text-gray-500 block mt-5 text-xs py-2">

@@ -2,9 +2,9 @@
 
 💰 Add a "Pay with Juicebox" button to your website.
 
-## WARNING not updated for Juicebox V3. Only use with Juicebox V2
+Compatible with Juicebox V3.
 
-> Juicebox V1 projects not supported (yet).
+> ⚠️ Juicebox V1 and V2 not supported.
 
 ## Usage
 
@@ -14,12 +14,13 @@
    <script src="https://tools.juicebox.money/pay.js"></script>
    ```
 
-2. Set the `data-project-id` attribute to your Juicebox project's ID.
+2. Set the `data-project-id` attribute to your Juicebox project's ID, and the `data-version` to `latest`.
 
    ```diff
    <script
      src="https://tools.juicebox.money/pay.js"
    + data-project-id="123"
+   + data-version="latest"
    ></script>
    ```
 

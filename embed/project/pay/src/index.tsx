@@ -35,7 +35,7 @@ const renderApp = (options: AppOptions) => {
 
   console.log("juice pay opts", options);
 
-  if (options.projectVersion !== "2") {
+  if (options.version !== "latest") {
     throw new Error("unsupported project version.");
   }
 

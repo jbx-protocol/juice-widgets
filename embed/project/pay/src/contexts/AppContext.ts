@@ -18,7 +18,7 @@ export interface AppOptions {
   triggerButtonStyle: string;
   triggerButtonSelector: string;
 
-  projectVersion: "2" | undefined;
+  version: "latest" | undefined;
 }
 
 interface AppContextData {

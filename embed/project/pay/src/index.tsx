@@ -38,6 +38,23 @@ const renderApp = (options: AppOptions) => {
   );
 };
 
+// renderApp({
+//   networkName: "mainnet",
+//   projectId: 397,
+//   title: "Pay",
+//   description: "Pay for this project",
+//   avatarUrl: "string",
+
+//   payButtonText: "string",
+
+//   triggerButtonText: "string",
+//   triggerButtonClass: "string",
+//   triggerButtonStyle: "string",
+//   triggerButtonSelector: "string",
+
+//   version: "latest",
+// });
+
 window.addEventListener(
   "message",
   (e) => {

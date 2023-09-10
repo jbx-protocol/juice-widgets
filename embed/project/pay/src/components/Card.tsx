@@ -27,7 +27,8 @@ export function Card() {
     projectMetadataCID as string | undefined
   );
 
-  const avatarUrl = `https://juicebox.money/api/juicebox/pv/2/project/${options?.projectId}/logo`;
+  const subdomain = options?.networkName === "mainnet" ? "" : "goerli.";
+  const avatarUrl = `https://${subdomain}juicebox.money/api/juicebox/pv/2/project/${options?.projectId}/logo`;
 
   return (
     <div className="sm:mx-auto sm:w-full sm:max-w-md card-transition rounded-md">
@@ -56,7 +57,7 @@ export function Card() {
                 Pay{" "}
                 <a
                   href={`https://juicebox.money/v2/p/${options?.projectId}`}
-                  className="hover:text-cyan-700 underline"
+                  className="hover:text-blue-700 underline"
                 >
                   {projectMetadata?.name}
                 </a>
@@ -77,10 +78,10 @@ export function Card() {
           ) : null}
         </div>
 
-        <small className="font-normal text-center text-gray-500 block mt-5 text-xs py-2">
+        <small className="font-normal text-center text-gray-500 block mt-5 text-xs py-4">
           Powered by{" "}
           <a
-            className="hover:text-cyan-700 underline"
+            className="hover:text-blue-700 underline"
             href="https://juicebox.money"
           >
             Juicebox

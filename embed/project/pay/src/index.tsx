@@ -22,7 +22,7 @@ const renderApp = (options: AppOptions) => {
 
   const queryClient = new QueryClient();
 
-  const { wagmiClient, chains } = createDefaultClient();
+  const { wagmiClient, chains } = createDefaultClient(options.networkName);
   root.render(
     <React.StrictMode>
       <WagmiConfig client={wagmiClient}>

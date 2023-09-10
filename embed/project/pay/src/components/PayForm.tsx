@@ -1,4 +1,5 @@
 import { parseEther } from "@ethersproject/units";
+import { BigNumber } from "ethers";
 import { useContext, useState } from "react";
 import {
   useAccount,
@@ -21,10 +22,10 @@ export function PayForm({ projectId }: { projectId: number }) {
   const network = useNetwork();
   const { options } = useContext(AppContext);
   const { address } = useAccount();
-  const [amount, setAmount] = useState<string>("0");
+  const [amount, setAmount] = useState<string>("");
   const [hasClicked, setHasClicked] = useState<boolean>(false);
 
-  const amountWei = parseEther(amount.toString());
+  const amountWei = amount ? parseEther(amount.toString()) : BigNumber.from(0);
 
   const { data: primaryTerminal } = useContractRead({
     addressOrName:

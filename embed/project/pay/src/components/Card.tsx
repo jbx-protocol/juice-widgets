@@ -1,19 +1,31 @@
 import { XCircleIcon } from "@heroicons/react/solid";
-import { useProjectMetadataContent } from "juice-hooks";
 import { useContext } from "react";
+import { useContractRead } from "wagmi";
 import { AppContext } from "../contexts/AppContext";
 import { useProjectMetadata } from "../hooks/useProjectMetadata";
+import { jbProjectsABI } from "../lib/juicebox/projectsAbi";
 import { Logo } from "./Logo";
 import { PayForm } from "./PayForm";
 
 export function Card() {
   const { options, root } = useContext(AppContext);
 
-  const { data: projectMetadataCID } = useProjectMetadataContent({
-    projectId: options?.projectId,
-    domain: "0",
+  const { data: projectMetadataCID } = useContractRead({
+    addressOrName:
+      options?.networkName === "mainnet"
+        ? "0xD8B4359143eda5B2d763E127Ed27c77addBc47d3"
+        : "0x21263a042aFE4bAE34F08Bb318056C181bD96D3b",
+    functionName: "metadataContentOf",
+    args: [
+      options?.projectId,
+      0, // domain
+    ],
+    contractInterface: jbProjectsABI,
   });
-  const { data: projectMetadata } = useProjectMetadata(projectMetadataCID);
+
+  const { data: projectMetadata } = useProjectMetadata(
+    projectMetadataCID as string | undefined
+  );
 
   const avatarUrl = `https://juicebox.money/api/juicebox/pv/2/project/${options?.projectId}/logo`;
 

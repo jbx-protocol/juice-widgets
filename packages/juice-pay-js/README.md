@@ -126,16 +126,16 @@ Set the pay button's inner text. Defaults to **'Pay now'**.
 
 #### `network-name`
 
-Set the Ethereum network to use. Chose from the following options:
+Set the Ethereum network to use. Choose from the following options:
 
 - `mainnet`
-- `rinkeby`
+- `goerli`
 
 Defaults to **`mainnet`**.
 
 ```html
 <script
   src="https://tools.juicebox.money/pay.js"
-  data-network-name="rinkeby"
+  data-network-name="goerli"
 ></script>
 ```

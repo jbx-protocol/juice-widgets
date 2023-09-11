@@ -39,8 +39,8 @@ const renderApp = (options: AppOptions) => {
 };
 
 // renderApp({
-//   networkName: "mainnet",
-//   projectId: 397,
+//   networkName: "goerli",
+//   projectId: 1221,
 //   title: "Pay",
 //   description: "Pay for this project",
 //   avatarUrl: "string",

@@ -51,7 +51,7 @@ export function Card() {
         </button>
         <div className="text-center mb-5 bg-zinc-100 w-full sm:px-10 pb-5 px-3 rounded-t-md">
           {avatarUrl && <Logo src={avatarUrl} />}
-          <h1 className="mt-4">
+          <h1 className="mt-2">
             {options?.title ?? (
               <>
                 Pay{" "}
@@ -66,7 +66,7 @@ export function Card() {
           </h1>
 
           {options?.description && (
-            <p className="mt-2 font-normal text-sm text-gray-600">
+            <p className="mt-1 font-normal text-sm text-gray-600">
               {options.description}
             </p>
           )}
